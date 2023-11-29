@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
 import fs from "fs";
 
-// Inquirer prompts
+// Inquirer prompts to ask user questions
 const questions = () => {
   return inquirer
     .prompt([
@@ -49,6 +49,7 @@ const questions = () => {
     });
 };
 
+// Based off of user input for "shape", it will select which shape to display.
 const generateSVG = ({ text, textColor, shape, shapeColor }) => {
   const triangle = `
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -73,6 +74,7 @@ const generateSVG = ({ text, textColor, shape, shapeColor }) => {
     </svg>
   `;
 
+  // if else to determine shape
   if (shape === "triangle") {
     return triangle;
   } else if (shape === "square") {
